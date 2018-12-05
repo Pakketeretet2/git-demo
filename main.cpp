@@ -6,7 +6,16 @@
 int fib( int n )
 {
 	if (n < 2) return 1;
-	return fib(n-1) + fib(n-2);
+	int a, b, c;
+	a = b = c = 1;
+	--n;
+	while (n != 0) {
+		c = a + b;
+		a = b;
+		b = c;
+		--n;
+	}
+	return b;
 }
 
 
