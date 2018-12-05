@@ -12,9 +12,8 @@ int fib( int n )
 
 // Room for improvement:
 // 1. Efficiency of fib.
-// 2. Take the nth fibonacci number from the command line
-// 3. Generalize Fibonacci sequence to any Lucas sequence
-// 4. Add a Makefile
+// 2. Generalize Fibonacci sequence to any Lucas sequence
+// 3. Add a Makefile
 int main(int argc, char **argv)
 {
 	if (argc < 2) {
