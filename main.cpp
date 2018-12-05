@@ -1,4 +1,5 @@
 #include <iostream>
+#include <sstream>
 
 // Calculates Fibonacci numbers
 // f(n) = f(n-1) + f(n-2), f(1) = f(0) = 1.
@@ -13,13 +14,25 @@ int fib( int n )
 // 1. Efficiency of fib.
 // 2. Take the nth fibonacci number from the command line
 // 3. Generalize Fibonacci sequence to any Lucas sequence
-// 
-int main()
+// 4. Add a Makefile
+int main(int argc, char **argv)
 {
-	std::cout << "fib(5) = " << fib(5) << ".\n";
-	for (int i = 0; i < 40; ++i) {
-		std::cout << "fib(" << i << ") = " << fib(i) << "\n";
+	if (argc < 2) {
+		std::cerr << "Provide a number!\n";
+		return -1;
 	}
+	
+	char *number = argv[1];
+	std::stringstream ss(number);
+	int n;
+	ss >> n;
+	std::string number2 = std::to_string(n);
+	if (number2 != number) {
+		std::cerr << "Could not unambiguously convert \"" << number << "\" to an int!\n";
+		return -2;
+	}
+
+	std::cout << "fib(" << n << ") = " << fib(n) << "\n";
 	
 	return 0;
 }
